@@ -24,69 +24,69 @@ function Navbar() {
   if(token !== '') {
     navbarComponent = (
 <AppBar position="static" className="navbar">
-        <Toolbar variant="dense" >
-        <Box className="pLogoNav">
+        <Toolbar  >
+        {/* <Box className="pLogoNav">
               <img className="logoNav" src="https://ik.imagekit.io/projetovoztech/VozTech-bg-pq.png?updatedAt=1685662797332" alt="" />
-            </Box>
+            </Box> */}
           <Grid container justifyContent={'space-between'} className='fonte'>
             {/* <Box style={{ cursor: 'pointer' }}>
-              <Typography variant="h5" color="inherit" className='fonte'>
+              <Typography variant="h5"  className='fonte'>
                 VozTech
               </Typography>
             </Box> */}
 
             <Box display="flex" justifyContent="start">
               <Link to="/home">
-                <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                <Box mx={1} className="cursor" >
+                  <Typography variant="h6"  className="margemcursor">
                     Página Inicial
                   </Typography>
                 </Box>
               </Link>
               <Link to="/postagens">
-                <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                <Box className="cursor">
+                  <Typography variant="h6"  className="margemcursor">
                     Postagens
                   </Typography>
                 </Box>
               </Link>
               <Link to="/temas">
-                <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                <Box className="cursor">
+                  <Typography variant="h6"  className="margemcursor">
                     Temas
                   </Typography>
                 </Box>
               </Link>
               <Link to="/formularioTema">
-                <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                <Box className="cursor">
+                  <Typography variant="h6"  className="margemcursor">
                     Cadastrar Tema
                   </Typography>
                 </Box>
               </Link>
               <Link to="/sobrenos">
-                <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                <Box className="cursor">
+                  <Typography variant="h6"  className="margemcursor">
                     Sobre Nós
                   </Typography>
                 </Box>
               </Link>
               <Link to="/parceiros">
-                <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                <Box  className="cursor">
+                  <Typography variant="h6" className="margemcursor">
                     Parceiros
                   </Typography>
                 </Box>
               </Link>
               <Link to="/perfil">
-                <Box mx={1} className="cursor">
-                  <Typography variant="h6" color="inherit">
+                <Box className="cursor">
+                  <Typography variant="h6" className="margemcursor">
                     Perfil
                   </Typography>
                 </Box>
               </Link>
-              <Box mx={1} className="cursor" onClick={logout}>
-                <Typography variant="h6" color="inherit">
+              <Box  className="cursor" onClick={logout} >
+                <Typography variant="h6" className="margemcursor">
                   Logout
                 </Typography>
               </Box>
