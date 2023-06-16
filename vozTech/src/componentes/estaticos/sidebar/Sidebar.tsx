@@ -54,7 +54,7 @@ const Sidebar: React.FunctionComponent = () => {
   const userId = useSelector<TokenState, TokenState['id']>((state) => state.id)
 
   const [usuario, setUsuario] = useState<User>({
-    id: +userId,
+    id: 0,
     foto: '',
     nome: '',
     usuario: '',
@@ -64,7 +64,7 @@ const Sidebar: React.FunctionComponent = () => {
 
   async function getUsuario() {
     try {
-      await buscaId(`/usuarios/${usuario.id}`, setUsuario, {
+      await buscaId(`/usuarios/${userId}`, setUsuario, {
         headers: {
           Authorization: token,
         },
@@ -76,7 +76,7 @@ const Sidebar: React.FunctionComponent = () => {
 
   useEffect(() => {
     getUsuario()
-  }, [])
+  }, [userId])
 
   useEffect(() => {
     setUsuario({
@@ -95,20 +95,23 @@ const Sidebar: React.FunctionComponent = () => {
         <Grid item xs={2}>
           <SidebarMenu className="sidebarmenu">
           <Box className="posilogoside">
-              <img
-                className="logoside"
-                src="https://ik.imagekit.io/projetovoztech/vozTech-center.png?updatedAt=1685468716232"
-                alt="Logo do projeto VozTech"
-              />
-            </Box>
+  <a href="https://github.com/projeto63" target="_blank">
+    <img
+      className="logoside"
+      src="https://ik.imagekit.io/projetovoztech/vozTech-center.png?updatedAt=1685468716232"
+      alt="Logo do projeto VozTech"
+    />
+  </a>
+</Box>
+
             <div className="perfilBanner">
-              <div>
-                <h2>{usuario.nome}</h2>
-                <p>{usuario.usuario}</p>
-                <p>{usuario.nome}</p> 
+              <div className="perfilContent">
+              <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`} />
+              <h2>{usuario.nome}</h2>
+                {/* <p>{usuario.usuario}</p> */}
+                {/* <p>{usuario.nome}</p>  */}
                 {/* <p>Total de postagens feitas: {usuario.postagem?.length}</p> */}
               </div>
-              <img src={usuario.foto} alt={`Foto de perfil de ${usuario.nome}`} />
             </div>
 
 
