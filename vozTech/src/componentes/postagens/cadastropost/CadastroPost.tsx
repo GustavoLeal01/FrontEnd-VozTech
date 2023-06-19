@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { busca, buscaId, put, post } from '../../../services/Service';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import { Box } from '@material-ui/core';
 
 function CadastroPost() {
     const navigate = useNavigate();
@@ -147,14 +148,51 @@ const [usuario, setUsuario] = useState<User>({
         navigate('/postagens')
     }
     return (
-        <Container maxWidth="sm" className="topo">
+        <Box className="tdcadastropost">
+        <Container  className="topopost">
             <form onSubmit={onSubmit}>
                 <Typography variant="h3" color="textSecondary" component="h1" align="center" >
                 {id !== undefined ? "Atualize " : "Cadastre "} sua postagem
                     </Typography>
                     {/* <TextField value={postagem.foto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} id="foto" label="Foto" name="foto" variant="outlined" margin="normal" fullWidth /> */}
-                <TextField value={postagem.titulo} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} helperText="Mínino 5 caracteres" id="titulo" label="titulo" variant="outlined" name="titulo" margin="normal" fullWidth />
-                <TextField value={postagem.texto} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} helperText="Mínino 10 caracteres" id="texto" label="texto" name="texto" variant="outlined" margin="normal" fullWidth />
+                <TextField 
+                value={postagem.titulo} 
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} 
+                helperText="Mínino 5 caracteres" 
+                id="titulo" 
+                label="titulo" 
+                variant="outlined" 
+                name="titulo" 
+                margin="normal" 
+                fullWidth 
+                sx={{
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#654236", 
+                    },
+                    "& .MuiInputLabel-root.Mui-focused": {
+                        color: "#654236", 
+                    },
+                }}
+                />
+                <TextField 
+                value={postagem.texto} 
+                onChange={(e: ChangeEvent<HTMLInputElement>) => updatedPostagem(e)} 
+                helperText="Mínino 10 caracteres" 
+                id="texto" 
+                label="texto" 
+                name="texto" 
+                variant="outlined" 
+                margin="normal" 
+                fullWidth 
+                sx={{
+                    "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "#654236",
+                    },
+                    "& .MuiInputLabel-root.Mui-focused": {
+                        color: "#654236", 
+                    },
+                }}
+                />
 
                 <FormControl >
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
@@ -165,7 +203,8 @@ const [usuario, setUsuario] = useState<User>({
                             headers: {
                                 'Authorization': token
                             }
-                        })}>
+                        })}
+                        >
                         {
                             temas.map(tema => (
                                 <MenuItem value={tema.id} style={{display: 'block'}}>
@@ -181,6 +220,7 @@ const [usuario, setUsuario] = useState<User>({
                 </FormControl>
             </form>
         </Container>
+    </Box>
     )
 }
 export default CadastroPost;
