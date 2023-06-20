@@ -35,6 +35,8 @@ function App() {
 
       <div className="apptsx" style={ token == ''?  {minHeight: '100vh'} : {minHeight: '100vh', width: 'calc(100vw-200px)', marginLeft: '200px' }}>
       <Navbar />
+      <div style={{minHeight: '75vh'}}>
+
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
@@ -54,6 +56,7 @@ function App() {
           <Route path='/parceiros' element={<Parceiros/>} />
 
         </Routes>
+      </div>
         <Footer />
       </div>
     </Router>

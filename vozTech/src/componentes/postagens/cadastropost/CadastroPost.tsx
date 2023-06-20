@@ -194,11 +194,12 @@ const [usuario, setUsuario] = useState<User>({
                 }}
                 />
 
-                <FormControl >
+                <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
+                        className='cordoselect'
                         onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
                             headers: {
                                 'Authorization': token
